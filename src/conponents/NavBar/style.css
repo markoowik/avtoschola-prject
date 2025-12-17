@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #7f89ff;
+    border-radius: 20px;
+}
+.navbar-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 350px;
+    width: fit-content;
+}
+.navbar_links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    list-style: none;
+}
+.custom_link{
+    color: white;
+    text-decoration: none;
+    font-family: "Bookman Old Style", serif;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.account_link{
+    display: flex;
+    width: 190px;
+    color: black;
+    text-decoration: none;
+    font-family: "Bookman Old Style", serif;
+    font-size: 20px;
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 10px;
+}
+.navbar-logo img{
+    width: 180px;
+    height: 120px;
+}

@@ -1,0 +1,27 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #7f89ff;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.footer-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo img{
+    width: 180px;
+    height: 120px;
+}
+.copyright span{
+    font-family: "Bookman Old Style", serif;
+    color: white;
+    font-size: 15px;
+}
+.footer_links{
+    margin-bottom: 30px;
+}

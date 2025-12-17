@@ -1,0 +1,268 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.header-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+.header-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.header-img img{
+    width:440px;
+}
+.header-text h2{
+    font-family: "Bookman Old Style", serif;
+    color: #1a1a7a;
+}
+.inner{
+    font-family: "Bookman Old Style", serif;
+    color: #333333;
+    font-weight: bold;
+}
+.header-inner {
+    width: 720px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: bold;
+    color: #333333;
+}
+.header-text ul li{
+    font-family: "Bookman Old Style", serif;
+    color: #333333;
+    font-size: 18px;
+}
+.header-btn{
+    background-color: #7f89ff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Bookman Old Style", serif;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+}
+.header-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+.prices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #7f89ff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top:100px;
+    margin-left: -30px;
+    width: 1280px;
+}
+.prices h1{
+    font-family: "Bookman Old Style", serif;
+    color:#1a1a7a;
+    margin-bottom: 30px;
+}
+.prices-cards{
+    display: flex;
+    gap:30px;
+}
+.prices-card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 30px;
+    padding: 2rem;
+    width: 390px;
+    gap: 20px;
+}
+.prices-card h2{
+    font-family: "Bookman Old Style", serif;
+    color: darkblue;
+}
+.date{
+    border: 2px solid yellow;
+    border-radius: 8px;
+    padding: 8px;
+    margin-right: 20px;
+}
+.effect{
+    border: 2px solid darkblue;
+    border-radius: 8px;
+    padding: 8px;
+}
+.prices-price{
+    margin-top: 368px;
+    font-family: "Bookman Old Style", serif;
+}
+.prices-price2{
+    margin-top: 220px;
+    font-family: "Bookman Old Style", serif;
+}
+.prices-price3{
+    margin-top: 120px;
+    font-family: "Bookman Old Style", serif;
+
+}
+.prices-card-description p{
+    font-family: "Bookman Old Style", serif;
+    padding: 4px;
+}
+.more-btn{
+    border: none;
+    background-color: yellow;
+    padding: 12px 25px;
+    border-radius: 14px;
+    color: black;
+    font-family: "Bookman Old Style", serif;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(255, 242, 0, 0.4);
+    transition: 0.3s;
+
+}
+.more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(255, 242, 0, 0.6);
+}
+.tenge{
+    font-weight: bold;
+}
+/*.more-btn:hover {*/
+/*    background-color: #0056b3;*/
+/*    transform: translateY(-2px);*/
+/*}*/
+
+.sale_info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 60px;
+    margin-left: 50px;
+}
+.sale_wrapper{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+}
+.sale-info_text h1{
+    color:#1a1a7a;
+    font-family: "Bookman Old Style", serif;
+}
+.sale-info_text p{
+    width: 390px;
+    color: #333333;
+    font-family: "Bookman Old Style", serif;
+}
+.sale-info_text-ul ul{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+}
+.sale-info_text-ul li{
+    margin-right: 150px;
+
+}
+.sale-info_text-ul ul p{
+    font-family: "Bookman Old Style", serif;
+}
+.sale-info_text-ul ul li{
+    padding: 8px;
+    color: #333333;
+    font-family: "Bookman Old Style", serif;
+    font-weight: bold;
+}
+.sale-info_text-ul ul li::marker{
+   color: #7f89ff;
+}
+.header-text ul li::marker{
+    color: #7f89ff;
+}
+.icon{
+    width: 20px;
+    position: relative;
+    top: 5px;
+}
+.car-park{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.car-park_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.car-park_title h1{
+    color: #1a1a7a;
+    font-family: "Bookman Old Style", serif;
+}
+.car-park_content{
+    display: flex;
+    gap: 40px;
+
+}
+.car-park_card{
+    border: 1px solid white;
+    -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    border-radius: 12px;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+}
+.car-park_card img{
+    border-radius: 12px;
+    width: 250px;
+}
+.car-park_card-info p{
+    font-family: "Bookman Old Style", serif;
+    padding: 9px;
+}
+.contacts{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+.contacts_wrapper{
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    gap: 370px;
+}
+.contact-title h1{
+    font-family: "Bookman Old Style", serif;
+    color: #1a1a7a;
+    font-weight: bold;
+    font-size: 30px;
+}
+.contact-title p{
+    color: #333333;
+    font-family: "Bookman Old Style", serif;
+    font-weight: bold;
+}
+.contact_links{
+    display: flex;
+    gap: 20px;
+}
