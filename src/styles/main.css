@@ -26,6 +26,7 @@ body {
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1200px;
+
 }
 .contact{
     display: flex;
@@ -284,7 +285,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+
+    padding: 40px 20px;
 }
 .paymentContent2{
     display: flex;
@@ -295,10 +297,10 @@ body {
 }
 .card span{
     font-family: "Bookman Old Style", serif;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 20px;
-    color: #ffffff;
-    background-color: red;
+
+
     padding: 10px;
     border-radius: 12px;
 }
@@ -325,6 +327,7 @@ body {
     margin-top: 80px;
     padding-top: 40px;
     border-top: 3px solid #eee;
+    text-align: center;
 }
 .cta_wrapper p{
     font-family: "Bookman Old Style", serif;
@@ -336,15 +339,59 @@ body {
     border: none;
     background-color: #fff200;
     font-family: "Bookman Old Style", serif;
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 16px 28px;
     border-radius: 14px;
     font-size: 16px;
     font-weight: 600;
     box-shadow: 0 8px 20px rgba(255, 242, 0, 0.4);
     transition: 0.3s;
+    color:#333333;
 }
 .cta_wrapper button:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(255, 242, 0, 0.6);
+}
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.ModalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 420px;
+    outline: none;
+    gap: 20px;
+}
+.ModalWrapper{
+    display: flex;
+    gap: 30px;
+
+    padding-top: 10px;
+    border-top: 3px solid #eee;
+}
+.ModalContent h2,
+.subtitle{
+    font-family: "Bookman Old Style", serif;
+    color: #333333;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px){
+    .container{
+        flex-direction: column;
+    }
 }

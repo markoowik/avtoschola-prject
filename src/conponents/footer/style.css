@@ -25,3 +25,13 @@
 .footer_links{
     margin-bottom: 30px;
 }
+
+@media (max-width: 768px) {
+    .copyright{
+        width: 100%;
+        max-width: 900px;
+    }
+    .copyright span{
+        font-size: 13px;
+    }
+}

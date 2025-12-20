@@ -15,7 +15,7 @@ const Footer = () => {
                       <li><Link to="/sale" className="custom_link">Цены</Link></li>
                       <li><Link to="/contact" className="custom_link">Связаться</Link></li>
                   </ul>
-                  <div className="copyright"><span>MARKOOWIK-DEV COMPANY | 2025  | Все права защищены</span></div>
+                  <div className="copyright"><span>markoowik-dev | 2025  | Все права защищены</span></div>
               </div>
           </div>
       </footer>

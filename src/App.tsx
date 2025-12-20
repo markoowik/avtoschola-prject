@@ -7,7 +7,8 @@ import Navbar from "./conponents/NavBar/Navbar.tsx";
 import Footer from "./conponents/footer/footer.tsx";
 import Header from "./conponents/header/header.tsx";
 import Contact from "./page/contact.tsx";
-import Sale from "./page/sale.tsx";
+// import Sale from "./page/sale.tsx";
+import Courses from "./page/Courses.tsx";
 
 
 
@@ -20,7 +21,7 @@ function App() {
             <Routes>
                 <Route path="/home" element={<Header />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/sale" element={<Sale />} />
+                <Route path="/sale" element={<Courses />} />
             </Routes>
             <Footer/>
         </BrowserRouter>

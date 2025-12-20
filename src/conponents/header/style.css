@@ -7,18 +7,32 @@
 }
 .header-wrapper{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 45px;
+    padding: 80px 0 60px;
+}
+.header-wrapper h1{
+    font-size: 44px;
+    margin-bottom: 15px;
+    font-family: "Bookman Old Style", serif;
+    color: #333333;
+}
+.header-wrapper p{
+    font-size: 18px;
+    margin-bottom: 24px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 600;
+    color: #333333;
 }
 .header-text{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.header-img img{
-    width:440px;
-}
+/*.header-img img{*/
+/*    width:440px;*/
+/*}*/
 .header-text h2{
     font-family: "Bookman Old Style", serif;
     color: #1a1a7a;
@@ -29,10 +43,12 @@
     font-weight: bold;
 }
 .header-inner {
-    width: 720px;
+    max-width: 720px;
+    width: 100%;
     font-family: "Bookman Old Style", serif;
     font-weight: bold;
     color: #333333;
+    padding: 0 16px;
 }
 .header-text ul li{
     font-family: "Bookman Old Style", serif;
@@ -55,85 +71,145 @@
     background-color: #0056b3;
     transform: translateY(-2px);
 }
-.prices{
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    margin-top: 40px;
+}
+
+.feature-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #7f89ff;
-    border-radius: 20px;
-    padding: 40px;
-    margin-top:100px;
-    margin-left: -30px;
-    width: 1280px;
-}
-.prices h1{
-    font-family: "Bookman Old Style", serif;
-    color:#1a1a7a;
-    margin-bottom: 30px;
-}
-.prices-cards{
-    display: flex;
-    gap:30px;
-}
-.prices-card{
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 30px;
-    padding: 2rem;
-    width: 390px;
-    gap: 20px;
-}
-.prices-card h2{
-    font-family: "Bookman Old Style", serif;
-    color: darkblue;
-}
-.date{
-    border: 2px solid yellow;
-    border-radius: 8px;
-    padding: 8px;
-    margin-right: 20px;
-}
-.effect{
-    border: 2px solid darkblue;
-    border-radius: 8px;
-    padding: 8px;
-}
-.prices-price{
-    margin-top: 368px;
-    font-family: "Bookman Old Style", serif;
-}
-.prices-price2{
-    margin-top: 220px;
-    font-family: "Bookman Old Style", serif;
-}
-.prices-price3{
-    margin-top: 120px;
-    font-family: "Bookman Old Style", serif;
-
-}
-.prices-card-description p{
-    font-family: "Bookman Old Style", serif;
-    padding: 4px;
-}
-.more-btn{
-    border: none;
-    background-color: yellow;
-    padding: 12px 25px;
+    background: #ffffff;
+    padding: 28px 24px;
     border-radius: 14px;
-    color: black;
-    font-family: "Bookman Old Style", serif;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 8px 20px rgba(255, 242, 0, 0.4);
-    transition: 0.3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card img,
+.feature-card svg {
+    filter: grayscale(1);
+}
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.icon{
+    margin-left: -30px;
+}
+.section-divider {
+    height: 80px;
+    background: linear-gradient(
+            to bottom,
+            #ffffff,
+            #f6f7ff
+    );
+}
+.pricing {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-top: 30px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 10px 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 
 }
-.more-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(255, 242, 0, 0.6);
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-family: "Bookman Old Style", serif;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    text-align: left;
+}
+
+.features-list li {
+    padding-left: 22px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 14px;
+}
+
+.features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4f46e5;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background: #ffd600;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.card.popular {
+    border: 2px solid #ffe066;
+    transform: translateY(-6px);
+}
+.btn-primary:hover {
+    background: #ffca28;
 }
 .tenge{
     font-weight: bold;
@@ -147,13 +223,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-top: 60px;
-    margin-left: 50px;
 }
 .sale_wrapper{
     display: flex;
-
     justify-content: center;
     align-items: center;
     gap: 120px;
@@ -163,7 +236,8 @@
     font-family: "Bookman Old Style", serif;
 }
 .sale-info_text p{
-    width: 390px;
+    max-width: 390px;
+    width: 100%;
     color: #333333;
     font-family: "Bookman Old Style", serif;
 }
@@ -265,4 +339,134 @@
 .contact_links{
     display: flex;
     gap: 20px;
+}
+.reviews{
+    margin-top: 80px;
+}
+.review-cards
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding-top: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    font-family: "Bookman Old Style", serif;
+    text-align: center;
+}
+.review-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+
+@media (max-width: 768px){
+    .header{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-wrapper{
+        padding: 24px 16px;
+    }
+
+    .header-wrapper h1{
+        font-size: 22px;
+    }
+
+    .header-wrapper p{
+        font-size: 16px;
+    }
+    .sale_wrapper,
+    .contacts_wrapper {
+        flex-direction: column;
+        gap: 24px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .sale-info_text-ul ul {
+        grid-template-columns: 1fr;
+    }
+
+    .sale-info_text-ul li {
+        margin-right: 0;
+    }
+    .car-park_content {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .features {
+        flex-direction: column;
+        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 32px 32px;
+    }
+    .feature-card {
+        width: 100%;
+        max-width: 320px;
+
+    }
+    .feature-card h3{
+        font-size: 30px;
+    }
+    .pricing{
+        padding: 32px 32px;
+    }
+
+    .pricing-grid{
+        flex-direction: column;
+        align-items: center;
+        grid-template-columns: 1fr;
+
+    }
+    .card{
+        width: 100%;
+        max-width: 320px;
+    }
+    .card h3{
+        font-size: 35px;
+    }
+    .sale_info {
+        margin-left: 0;
+        padding: 0 16px;
+    }
+
+    .sale_wrapper {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .sale-info_text p {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .sale-info_text-ul ul {
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding-left: 16px;
+    }
+
+    .sale-info_text-ul li {
+        margin-right: 0;
+    }
+    .reviews{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .review-cards{
+        padding: 32px 32px;
+    }
+    .review-card{
+        width: 100%;
+        max-width: 320px;
+    }
 }
