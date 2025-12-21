@@ -1,5 +1,5 @@
 
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 
 import "../src/styles/main.css"
 
@@ -19,6 +19,7 @@ function App() {
         <BrowserRouter>
             <Navbar/>
             <Routes>
+                <Route path="/" element={<Navigate to="/home" replace/>}/>
                 <Route path="/home" element={<Header />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/sale" element={<Courses />} />

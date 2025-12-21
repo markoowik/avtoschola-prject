@@ -21,7 +21,7 @@ const Courses = () => {
         <div className="courses">
             <h1>Наши курсы</h1>
                 <div className="courses-list">
-                    <div className="coursesWrappper">
+                    <div className="courses-wrapper">
                         <CourseCard
                             title="Категория B"
                             description="Обучение вождению легковых автомобилей"
@@ -52,7 +52,7 @@ const Courses = () => {
                             <a><img width="48" height="48" src="https://img.icons8.com/color/48/installment-plan.png" alt="installment-plan"/>&nbsp;Рассрочка</a>
                         </div>
                         <div className="card">
-                            <a href="https://"><img src={kaspiBankIcon}/></a>
+                            <a href="https://"><img src={kaspiBankIcon} alt="KaspiBank"/></a>
                         </div>
                     </div>
                 </div>

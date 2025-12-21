@@ -394,4 +394,15 @@ body {
     .container{
         flex-direction: column;
     }
+    /*.contact{*/
+    /*    flex-direction: column;*/
+    /*}*/
+    /*.contact_wrapper{*/
+    /*    flex-direction: column;*/
+    /*}*/
+    .contactContent{
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+    }
 }

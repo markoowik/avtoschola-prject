@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
 }
-.coursesWrappper {
+.courses_wrapper {
     display: flex;
 
     justify-content: center;
@@ -54,4 +54,23 @@
 }
 .course-card button:hover{
     opacity: 0.9;
+}
+
+
+@media (max-width: 768px){
+    .courses{
+        text-align: center;
+    }
+    .courses_wrapper{
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+    .paymentContent2{
+        flex-direction: column;
+    }
+    .cta{
+        padding: 20px 10px;
+        margin-top: -3px;
+    }
 }
