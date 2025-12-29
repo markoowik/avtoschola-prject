@@ -17,28 +17,17 @@ const Courses = () => {
     const closeModal = () => {
         setIsOpen(false);
     }
+
+
+
     return (
         <div className="courses">
             <h1>Наши курсы</h1>
                 <div className="courses-list">
-                    <div className="courses-wrapper">
-                        <CourseCard
-                            title="Категория B"
-                            description="Обучение вождению легковых автомобилей"
-                            price="50 000т"
-                        />
-                        <CourseCard
-                            title="Категория A"
-                            description="Обучение вождению мотоциклов"
-                            price="18 000т"
-                        />
-                        <CourseCard
-                            title="Категория C"
-                            description="Подготовка водителей грузового транспорта"
-                            price="50 000т"
-                        />
+                    <div className="courses_wrapper">
+                        <CourseCard/>
                     </div>
-            </div>
+                </div>
             <div className="payment">
                 <div className="paymentContent">
                     <div >
@@ -46,7 +35,7 @@ const Courses = () => {
                     </div>
                     <div className="paymentContent2">
                         <div className="card card1">
-                            <img src={creditCard} alt="creditCard" className="creditCardImg"/><span>Карта / Наличные• </span>
+                            <img src={creditCard} alt="creditCard" className="creditCardImg"/><span>Карта / Наличные</span>
                         </div>
                         <div className="card card2">
                             <a><img width="48" height="48" src="https://img.icons8.com/color/48/installment-plan.png" alt="installment-plan"/>&nbsp;Рассрочка</a>

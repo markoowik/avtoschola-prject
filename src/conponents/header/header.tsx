@@ -6,7 +6,7 @@ import gazzel from "../../assets/cars/gazzel.webp"
 
 import whatsappIcon from "./../../assets/icons/whatsapp_logo.svg"
 import telegramIcon from "../../assets/icons/telegram_logo.svg"
-import vkIcon from "../../assets/icons/vk-logo.svg"
+import instagramIcon from "../../assets/icons/instagram.svg"
 import "./style.css"
 
 type Review = {
@@ -217,7 +217,7 @@ const Header = () => {
                     <div className="contact_links">
                         <a href="http://w.me/+77089202157"><img src={whatsappIcon}/></a>
                         <a href="http://t.me/markoowik"><img src={telegramIcon}/></a>
-                        <a href="http://vk.com/"><img src={vkIcon}/></a>
+                        <a href="http://vk.com/"><img src={instagramIcon} alt="ins"/></a>
                     </div>
                 </div>
             </div>

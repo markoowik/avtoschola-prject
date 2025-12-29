@@ -9,6 +9,16 @@ import Header from "./conponents/header/header.tsx";
 import Contact from "./page/contact.tsx";
 // import Sale from "./page/sale.tsx";
 import Courses from "./page/Courses.tsx";
+import Acccount from "./page/acccount.tsx";
+
+import AuthForm from "./conponents/forms/AuthForm.tsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "./conponents/routes/PrivateRoute.tsx";
+
+
+
+
 
 
 
@@ -18,11 +28,22 @@ function App() {
   return (
         <BrowserRouter>
             <Navbar/>
+            <ToastContainer position="top-right" autoClose={3000} />
             <Routes>
                 <Route path="/" element={<Navigate to="/home" replace/>}/>
                 <Route path="/home" element={<Header />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/sale" element={<Courses />} />
+                <Route
+                    path="/account"
+                    element={
+                        <PrivateRoute>
+                            <Acccount/>
+                        </PrivateRoute>
+                    }
+                />
+                <Route path="/login" element={<AuthForm type="signin"/>}/>
+                <Route path="/register" element={<AuthForm type="signup"/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

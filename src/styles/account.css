@@ -1,0 +1,115 @@
+.account{
+    display: flex;
+    padding: 30px 10px;
+    justify-content: center;
+    align-items: center;
+}
+.account_wrapper{
+    display: flex;
+
+    -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    width: 700px;
+    margin-top: 40px;
+
+    border-radius: 16px;
+
+}
+.account_content{
+    display: flex;
+    flex-direction: column;
+    background: #7f89ff;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px 0 0 10px;
+    padding: 10px 10px;
+    gap:15px;
+
+
+}
+.account_content p{
+    font-family: "Bookman Old Style", serif;
+    color: white;
+    font-size: 16px;
+}
+.account_content h3{
+    font-family: "Bookman Old Style", serif;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+.buttons button{
+    border: none;
+    background: #fff200;
+    border-radius: 12px;
+    padding: 10px 17px;
+    font-family: "Bookman Old Style", serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+.status-card {
+    background: transparent;          /* убрали фон */
+    color: #2b2b2b;                    /* тёмный текст */
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #e6e8f0;         /* лёгкая рамка */
+}
+
+.status-card h3 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #2d3a8c;                    /* фирменный синий */
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f7ff;               /* очень светлый фон */
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.status-item .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.status-item .label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.value {
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+.in-progress {
+    color: #ffb800;                    /* жёлтый акцент */
+}
+
+.muted {
+    color: #8a8fa3;
+}
+
+.progress {
+    height: 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #ffe600;
+    border-radius: 6px;
+}

@@ -9,7 +9,7 @@
 }
 .courses_wrapper {
     display: flex;
-
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -20,9 +20,13 @@
     color: #1a1a7a;
 }
 .courses-list{
-    display: grid;
-    flex-direction: column;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+
+
+    gap: 20px;
+}
+.course-cards{
+    display: flex;
     gap: 20px;
 }
 .course-card{
@@ -55,8 +59,88 @@
 .course-card button:hover{
     opacity: 0.9;
 }
+.course-modals{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background: #fff;
+    border-radius: 12px;
+}
+.course-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+.course-modal h3{
+    font-family: "Bookman Old Style", serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333333;
+}
+.course-modal p{
+    font-family: "Bookman Old Style", serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    width: 500px;
+    text-align: center;
+}
+.course-modal b{
+    font-family: "Bookman Old Style", serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    padding: 20px;
+}
+.application-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+.application-form input{
+    border: none;
+    -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+    border-radius: 12px;
+    padding: 15px;
+    width: 350px;
+}
+.application-form button{
+    border: none;
+    border-radius: 12px;
+    background: #fff200;
+    color: #333333;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+.features-list2{
+    list-style: none;
+    padding: 5px;
+}
+.features-list2 li{
+    font-family: "Bookman Old Style", serif;
+    font-size: 14px;
+    position: relative;
+}
+.features-list2 li::before {
+    content: "✓";
+    position: absolute;
+    left: -15px;
 
-
+    color: #4f46e5;
+    font-weight: bold;
+}
 @media (max-width: 768px){
     .courses{
         text-align: center;
@@ -64,7 +148,8 @@
     .courses_wrapper{
         flex-direction: column;
         width: 100%;
-        max-width: 250px;
+        max-width: 250px; /* карточки узкие */
+        margin: 0 auto;
     }
     .paymentContent2{
         flex-direction: column;
@@ -72,5 +157,20 @@
     .cta{
         padding: 20px 10px;
         margin-top: -3px;
+    }
+    .course-cards{
+        flex-direction: column;
+    }
+    .course-modals{
+        width: 100%;
+        max-width: 330px;
+    }
+    .application-form{
+        justify-content: center;
+        align-items: center;
+    }
+    .application-form input{
+        width: 150%;
+        max-width: 390px;
     }
 }
