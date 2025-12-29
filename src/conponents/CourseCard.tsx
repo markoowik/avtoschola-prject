@@ -24,6 +24,8 @@ const CourseCard = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
+    const API_URL = "https://your-backend.onrender.com/api";
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -45,7 +47,7 @@ const CourseCard = () => {
 
         // ✅ 2. ПОТОМ отправить заявку в БД
         try {
-            await fetch("http://192.168.1.120:5000/api/applications", {
+            await fetch(`${API_URL}/applications`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -68,7 +70,7 @@ const CourseCard = () => {
 
 
     useEffect(() => {
-        fetch("http://192.168.1.120:5000/api/courses")
+        fetch(`/api/courses`)
             .then(res => {
                 if (!res.ok) throw new Error("Ошибка сети");
                 return res.json();

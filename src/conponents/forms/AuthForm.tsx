@@ -15,6 +15,7 @@ export default function AuthForm({ type }: Props) {
     const [surname, setSurName] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const API_URL = "https://your-backend.onrender.com/api";
 
     const navigate = useNavigate();
 
@@ -32,8 +33,8 @@ export default function AuthForm({ type }: Props) {
         try {
             const url =
                 type === "signup"
-                    ? "http://192.168.1.120:5000/api/auth/register"
-                    : "http://192.168.1.120:5000/api/auth/login";
+                    ? `${API_URL}/auth/register`
+                    : `${API_URL}/auth/login`;
 
             const body =
                 type === "signup"

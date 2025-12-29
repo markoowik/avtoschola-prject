@@ -3,6 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
+const PORT = process.env.PORT || 5000;
+
 import authRoutes from "./src/routes/auth.js";
 import courseRoutes from "./src/routes/courseRoutes.js";
 import applicationRoutes from "./src/routes/applicationRoutes.js";
@@ -10,7 +12,9 @@ import applicationRoutes from "./src/routes/applicationRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "*",
+}));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -22,4 +26,6 @@ app.use("/api/courses", courseRoutes);
 app.use("/api/applications", applicationRoutes);
 
 
-app.listen(5000, () => console.log("Server running on port 5000."));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
