@@ -1,4 +1,6 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -9,12 +11,9 @@ import authRoutes from "./src/routes/auth.js";
 import courseRoutes from "./src/routes/courseRoutes.js";
 import applicationRoutes from "./src/routes/applicationRoutes.js";
 
-dotenv.config();
 
 const app = express();
-app.use(cors({
-    origin: "*",
-}));
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)

@@ -24,7 +24,7 @@ const CourseCard = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
-    const API_URL = "https://your-backend.onrender.com/api";
+    const API_URL = import.meta.env.VITE_API_URL;
 
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -70,7 +70,7 @@ const CourseCard = () => {
 
 
     useEffect(() => {
-        fetch(`/api/courses`)
+        fetch(`${API_URL}/courses`)
             .then(res => {
                 if (!res.ok) throw new Error("Ошибка сети");
                 return res.json();

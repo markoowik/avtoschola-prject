@@ -15,7 +15,7 @@ export default function AuthForm({ type }: Props) {
     const [surname, setSurName] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const API_URL = "https://your-backend.onrender.com/api";
+    const API_URL = "https://avto-school-backend.onrender.com/api";
 
     const navigate = useNavigate();
 
