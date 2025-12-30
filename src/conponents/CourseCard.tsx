@@ -24,7 +24,7 @@ const CourseCard = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = "https://avto-school-backend.onrender.com/api";
 
 
     const handleSubmit = async (e: React.FormEvent) => {
