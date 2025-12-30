@@ -17,12 +17,12 @@ const Account = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
 
-
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await api.get(`/auth/me`);
+                const res = await api.get(`${API_URL}/auth/me`);
                 setUser(res.data);
             } catch (err: any) {
                 setUser(null);
