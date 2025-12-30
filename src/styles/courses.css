@@ -124,6 +124,9 @@
     font-size: 16px;
     padding: 10px 20px;
 }
+.features-list{
+    margin-top: 20px;
+}
 .features-list2{
     list-style: none;
     padding: 5px;
