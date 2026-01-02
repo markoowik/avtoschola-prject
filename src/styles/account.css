@@ -113,3 +113,26 @@
     background: #ffe600;
     border-radius: 6px;
 }
+.profile-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px  ;
+}
+.toast{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #7f89ff;
+    padding: 50px 30px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    color: white;
+    font-family: "Bookman Old Style", serif;
+}
+.toast span{
+    font-size: 30px;
+    padding-bottom: 10px;
+}

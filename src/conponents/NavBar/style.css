@@ -30,15 +30,23 @@
 
 }
 .account_link{
-    display: flex;
-    width: 190px;
-    color: black;
-    text-decoration: none;
+    border: none;
+    background-color: #fff200;
     font-family: "Bookman Old Style", serif;
-    font-size: 20px;
-    background-color: yellow;
-    border-radius: 10px;
-    padding: 10px;
+    /*margin-top: 25px;*/
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(255, 242, 0, 0.4);
+    transition: 0.3s;
+    color:#333333;
+}
+.account_link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(255, 242, 0, 0.6);
 }
 .navbar-logo{
     flex-shrink: 0;

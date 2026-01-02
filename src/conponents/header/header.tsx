@@ -8,6 +8,7 @@ import whatsappIcon from "./../../assets/icons/whatsapp_logo.svg"
 import telegramIcon from "../../assets/icons/telegram_logo.svg"
 import instagramIcon from "../../assets/icons/instagram.svg"
 import "./style.css"
+import News from "../../page/news.tsx"
 
 type Review = {
     name: string;
@@ -208,6 +209,7 @@ const Header = () => {
                     ))}
                 </div>
             </section>
+            <News/>
             <div className="contacts">
                 <div className="contacts_wrapper">
                     <div className="contact-title">

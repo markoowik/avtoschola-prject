@@ -45,12 +45,13 @@ const Account = () => {
     if (loading)
         return (
             <main className="profile-page">
-                <div className="toast toast-loading">⏳ Загрузка профиля...</div>
+                <div className="toast toast-loading"><span>⏳</span> Загрузка профиля...</div>
                 {error}
             </main>
         );
     return (
         <div className="account">
+
             <div className="container">
 
                 <h1 className="title">Личный кабинет</h1>
