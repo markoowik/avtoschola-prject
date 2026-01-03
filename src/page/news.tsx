@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-
+import "../styles/news.css"
 
 
 interface NewsPage {
@@ -32,9 +32,12 @@ const News = () => {
                 <h1 className="title">Новости</h1>
                 <div className="news-wrapper">
                     {news.map((newses) => (
-                        <div key={newses._id}>
-                            <img src={newses.image} alt={newses.title} />
-                            <div>
+                        <div key={newses._id} className="news-card">
+                            <img
+                                src={`https://avto-school-backend.onrender.com/${newses.image}`}
+                                alt={newses.title}
+                            />
+                            <div className="news-card_info">
                                 <h2>{newses.title}</h2>
                                 <p>{newses.description}</p>
                             </div>

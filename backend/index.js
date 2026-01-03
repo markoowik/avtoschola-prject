@@ -4,6 +4,7 @@ dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import path from "path";
 
 const PORT = process.env.PORT || 5000;
 
@@ -25,6 +26,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/news", newsRoutes);
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
+
 
 
 app.listen(PORT, () => {
