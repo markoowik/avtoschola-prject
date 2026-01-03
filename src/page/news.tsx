@@ -34,7 +34,7 @@ const News = () => {
                     {news.map((newses) => (
                         <div key={newses._id} className="news-card">
                             <img
-                                src={`https://avto-school-backend.onrender.com/${newses.image}`}
+                                src={`${API_URL}${newses.image}`}
                                 alt={newses.title}
                             />
                             <div className="news-card_info">
