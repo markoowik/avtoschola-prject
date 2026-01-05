@@ -2,6 +2,7 @@ import "../styles/account.css"
 
 import {useEffect, useState} from "react";
 import api from "./../api.tsx"
+import {Link} from "react-router-dom";
 
 
 interface User {
@@ -22,7 +23,12 @@ const Account = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const res = await api.get(`${API_URL}/auth/me`);
+                const res = await api.get(`${API_URL}/auth/me`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
                 setUser(res.data);
             } catch (err: any) {
                 setUser(null);
@@ -62,6 +68,7 @@ const Account = () => {
                         <p>Фамилия: {user?.surname}</p>
                         <p>Номер телефона: +7 708 920 2157</p>
                         <div className="buttons">
+                            <Link to="/addnews"> <button>Добавить новости</button></Link>
                             <button>Настройка</button>
                             <button>Выйти</button>
                         </div>

@@ -10,6 +10,7 @@ import Contact from "./page/contact.tsx";
 // import Sale from "./page/sale.tsx";
 import Courses from "./page/Courses.tsx";
 import Acccount from "./page/acccount.tsx";
+import AddNews from "./conponents/forms/AddNews.tsx";
 
 import AuthForm from "./conponents/forms/AuthForm.tsx";
 import { ToastContainer } from "react-toastify";
@@ -44,6 +45,7 @@ function App() {
                 />
                 <Route path="/login" element={<AuthForm type="signin"/>}/>
                 <Route path="/register" element={<AuthForm type="signup"/>}/>
+                <Route path="/addnews" element={<AddNews/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

@@ -13,6 +13,7 @@ const News = () => {
 
     const [news, setNews] = useState<NewsPage[]>([]);
 
+
     const API_URL = "https://avto-school-backend.onrender.com/api";
 
 
@@ -25,6 +26,7 @@ const News = () => {
             .then(data => setNews(data))
             .catch(err => console.error(err));
     }, [])
+
 
     return (
         <div className="news-container">
