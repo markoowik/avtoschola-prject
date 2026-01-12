@@ -2,7 +2,8 @@ import "../styles/account.css"
 
 import {useEffect, useState} from "react";
 import api from "./../api.tsx"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import PaymentCard from "../conponents/paymentcard/PaymentCard.tsx";
 
 
 interface User {
@@ -14,6 +15,7 @@ interface User {
 
 const Account = () => {
 
+    const navigate = useNavigate();
     const [user, setUser] = useState<User | null>(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
@@ -47,6 +49,16 @@ const Account = () => {
         }
     }, []);
 
+    const handleClink =() => {
+        const token = localStorage.getItem("token");
+
+        if(token) {
+            navigate("/admin-panel");
+        }else{
+            navigate("/adminlogin");
+        }
+    }
+
 
     if (loading)
         return (
@@ -68,35 +80,14 @@ const Account = () => {
                         <p>Фамилия: {user?.surname}</p>
                         <p>Номер телефона: +7 708 920 2157</p>
                         <div className="buttons">
-                            <Link to="/addnews"> <button>Добавить новости</button></Link>
+                            <button onClick={handleClink}>Админ-панель</button>
+                            <button><Link to="/addnews" className="linkBtn"> Добавить новости</Link></button>
                             <button>Настройка</button>
                             <button>Выйти</button>
                         </div>
                     </div>
                     <div className="status-card">
-                        <h3>Статус обучения</h3>
-
-                        <div className="status-item">
-                            <span className="icon">📘</span>
-                            <span className="label">Теория</span>
-                            <span className="value in-progress">В процессе</span>
-                        </div>
-
-                        <div className="status-item">
-                            <span className="icon">🚗</span>
-                            <span className="label">Практика</span>
-                            <span className="value">3 / 20 занятий</span>
-                        </div>
-                        <div className="progress">
-                            <div className="progress-bar" style={{ width: '80%' }}></div>
-                        </div>
-
-                        <div className="status-item">
-                            <span className="icon">📝</span>
-                            <span className="label">Экзамен</span>
-                            <span className="value muted">Не назначен</span>
-                        </div>
-
+                        <PaymentCard total={100} paid={100}/>
                     </div>
                 </div>
             </div>

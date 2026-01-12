@@ -13,6 +13,8 @@ import courseRoutes from "./src/routes/courseRoutes.js";
 import applicationRoutes from "./src/routes/applicationRoutes.js";
 import newsRoutes from "./src/routes/newsRoutes.js"
 
+import adminRoutes from "./src/routes/admin.js"
+
 
 
 import { fileURLToPath } from 'url';
@@ -23,6 +25,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.MONGODB_URI)
      .then(() => console.log("MongoDB Connected"))
@@ -33,6 +36,7 @@ app.use("/api/courses", courseRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/news", newsRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/api/admin", adminRoutes);
 
 
 

@@ -40,7 +40,8 @@
     text-align: center;
 }
 .buttons{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 10px;
 }
 .buttons button{
@@ -52,6 +53,9 @@
     font-size: 16px;
     font-weight: 600;
 }
+.linkBtn{
+    color:black;
+}
 .status-card {
     background: transparent;          /* убрали фон */
     color: #2b2b2b;                    /* тёмный текст */
@@ -59,7 +63,7 @@
     padding: 20px;
     width: 100%;
     max-width: 420px;
-    border: 1px solid #e6e8f0;         /* лёгкая рамка */
+
 }
 
 .status-card h3 {

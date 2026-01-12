@@ -1,5 +1,9 @@
 import {useEffect, useState} from "react";
 import "../styles/news.css"
+import ReactMarkdown from "react-markdown";
+
+import newsIMG from "../assets/IMG/news.webp"
+import {NavLink} from "react-router-dom";
 
 
 interface NewsPage {
@@ -7,6 +11,7 @@ interface NewsPage {
     title: string,
     description: string,
     image: string,
+    createdAt: string
 }
 
 const News = () => {
@@ -27,6 +32,11 @@ const News = () => {
             .catch(err => console.error(err));
     }, [])
 
+    function getPreview(text: string, length = 140) {
+        return text.length > length
+            ? text.slice(0, length) + "..."
+            : text;
+    }
 
     return (
         <div className="news-container">
@@ -35,14 +45,25 @@ const News = () => {
                 <div className="news-wrapper">
                     {news.map((newses) => (
                         <div key={newses._id} className="news-card">
-                            <img
-                                src={`${API_URL}${newses.image}`}
-                                alt={newses.title}
-                            />
-                            <div className="news-card_info">
-                                <h2>{newses.title}</h2>
-                                <p>{newses.description}</p>
+                            <div className="news-card_img">
+                                <img
+                                    src={newsIMG}
+                                    alt={newses.title}
+                                />
                             </div>
+
+                            <div className="news-card__content">
+                                <h2 className="news-card__title">{newses.title}</h2>
+                                <ReactMarkdown>{getPreview(newses.description)}</ReactMarkdown>
+                                <span className="news-card__date">Опубликовано:  {new Date(newses.createdAt).toLocaleDateString()}</span>
+                            </div>
+                            <div className="more-btn">
+                                <NavLink to={`/news/${newses._id}`}>
+                                    <button>Подробнее</button>
+                                </NavLink>
+
+                            </div>
+
                         </div>
                     ))}
                 </div>
