@@ -1,6 +1,8 @@
 import express from 'express';
 import News from '../models/News.js';
 import {upload} from '../middleware/upload.js';
+import {checkAdminAuth} from "../middleware/ChechAuthAdmin.js";
+import {authAdminMiddleware} from "../middleware/authAdminMiddleware.js";
 
 const router = express.Router();
 
@@ -31,11 +33,13 @@ router.get("/:id", async (req, res) => {
     }
 });
 // POST: создать новость
-router.post("/addnews", upload.single("image"), async (req, res) => {
+router.post(
+    "/addnews",
+    authAdminMiddleware("admin"),
+    upload.single("image"),
+    async (req, res) => {
         try {
             const { title, description } = req.body;
-
-            // const image = req.file ? req.file.path : null;
 
             const news = await News.create({
                 title,
@@ -49,6 +53,7 @@ router.post("/addnews", upload.single("image"), async (req, res) => {
         }
     }
 );
+
 
 
 export default router;

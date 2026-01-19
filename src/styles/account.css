@@ -140,3 +140,12 @@
     font-size: 30px;
     padding-bottom: 10px;
 }
+
+@media (max-width: 768px){
+
+    .account_wrapper{
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+    }
+}

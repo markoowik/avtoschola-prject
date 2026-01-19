@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import "./../../styles/news.css"
+import {toast} from "react-toastify";
 
 interface NewsFormData {
     title: string;
@@ -13,7 +15,7 @@ const AddNews = () => {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const API_URL = "https://avto-school-backend.onrender.com/api"; // Опечатка в домене!
 
@@ -29,6 +31,12 @@ const AddNews = () => {
         setLoading(true);
         setError('');
 
+        const token = localStorage.getItem("adminToken");
+        if (!token) {
+            toast.error("Вы не авторизованы как администратор");
+            setLoading(false);
+            return;
+        }
         console.log('Form data before send:', formState);
 
         const formData = new FormData();
@@ -41,6 +49,9 @@ const AddNews = () => {
         try {
             const response = await fetch(`${API_URL}/news/addnews`, {
                 method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
                 body: formData,
             });
 
@@ -54,7 +65,7 @@ const AddNews = () => {
 
             const data = await response.json();
             console.log("News Created", data);
-            navigate('/news');
+            toast.success("Вы успешно создали новый новости.")
         } catch (error) {
             console.error('Error uploading news:', error);
             setError('Ошибка при создании новости. Проверьте данные и попробуйте снова.');
@@ -64,9 +75,9 @@ const AddNews = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="add-news">
             <div className="container">
-                <h1>Добавить новости</h1>
+                <h1 className="title">Добавить новости</h1>
                 {error && <div className="error-message">{error}</div>}
                 <div className="add-news_wrapper">
                     <input
@@ -88,7 +99,7 @@ const AddNews = () => {
                     {/*    accept="image/*"*/}
                     {/*    onChange={handleImageChange}*/}
                     {/*/>*/}
-                    <button type="submit" disabled={loading}>
+                    <button type="submit" disabled={loading} className="add-btn">
                         {loading ? 'Загрузка...' : 'Создать новость'}
                     </button>
                 </div>

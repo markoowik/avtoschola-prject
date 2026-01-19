@@ -11,14 +11,19 @@ router.get("/me", authMiddleware, async (req, res) => {
     try {
         const user = await User.findById(req.user.id); // req.user приходит из authMiddleware
         if (!user) return res.status(404).json({ message: "Пользователь не найден" });
+        console.log("USER FROM DB:", user); // 👈 СМОТРИ СЮДА
 
         // Вот сюда вставляем
         res.json({
             _id: user._id,
             username: user.username,
-            surname: user.surname, // теперь отправляем фамилию
-            email: user.email
+            surname: user.surname, // имя и фамилия остаются
+            email: user.email,
+            role: user.role,       // добавляем
+            balance: user.balance,
         });
+        console.log("REQ.USER:", req.user);
+
     } catch (err) {
         res.status(500).json({ message: "Ошибка сервера" });
     }
@@ -31,7 +36,7 @@ router.post("/register", async (req, res) => {
     if (candidate) return res.status(400).json({ message: "Пользователь с таким email уже существует"});
 
     const hash = await bcrypt.hash(password, 10);
-    const user = new User({ username, surname, email, password: hash });
+    const user = new User({ username, surname, email, password: hash, role: "student" });
 
     await user.save();
     res.json({ message: "User created successfully" });
@@ -46,7 +51,14 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: "Wrong password" });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h"});
+    const token = jwt.sign(
+        {
+            id: user._id,
+            role: user.role,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "7d" }
+    );
     res.json({ token });
 });
 

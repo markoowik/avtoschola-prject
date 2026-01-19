@@ -1,14 +1,17 @@
 import "./../../../styles/adminpanel.css"
 import {useEffect, useState} from "react";
-import api from "../../../api"
+import apiAdmin from "../../../api/apiAdmin.tsx";
 
 interface Admin {
     _id: string;
     name: string;
-    password: string;
     role: string;
 
 }
+const roleMap: Record<string, string> = {
+    admin: "Администратор",
+    moderator: "Модератор",
+};
 
 const AdminPanel = () => {
 
@@ -16,35 +19,42 @@ const AdminPanel = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
 
+
+
     const API_URL = "https://avto-school-backend.onrender.com/api";
-    const token = localStorage.getItem("token");
+
     useEffect(() => {
+        const token = localStorage.getItem("adminToken");
 
+        if (!token) {
+            setLoading(false);
+            return;
+        }
 
-        const fetchAdminPanel = async () => {
-            try{
-                const res = await api.get(`${API_URL}/admin/me`, {
+        const adminInfo = localStorage.getItem("adminInfo");
+        if (adminInfo) setAdmin(JSON.parse(adminInfo));
+
+        (async () => {
+            try {
+                const res = await apiAdmin.get(`${API_URL}/admin/me`, {
                     headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
-                setAdmin(res.data)
-            } catch(err: any){
+
+                setAdmin(res.data);
+                localStorage.setItem("adminInfo", JSON.stringify(res.data));
+            } catch (err: any) {
                 setAdmin(null);
-                localStorage.removeItem("token");
+                localStorage.removeItem("adminToken");
+                localStorage.removeItem("adminInfo");
                 setError("Сессия истекла, войдите снова");
-            }
-            finally {
+                console.error(err)
+            } finally {
                 setLoading(false);
             }
-        }
-        if (token) {
-            fetchAdminPanel();
-        } else {
-            setLoading(false);
-        }
+        })();
     }, []);
-
 
     if (loading)
         return (
@@ -61,7 +71,7 @@ const AdminPanel = () => {
                 <div className="admin-panel_wrapper">
                     <div className="admin-panel_content">
                         <p>Имя:{admin?.name}</p>
-                        <p>Роль:{admin?.role}</p>
+                        <p>Роль:{roleMap[admin?.role ?? ""]}</p>
                         <div className="buttons">
                             <button>Список пользователи</button>
                             <button>Список администрации</button>

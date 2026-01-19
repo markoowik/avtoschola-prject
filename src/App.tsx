@@ -21,6 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./conponents/routes/PrivateRoute.tsx";
 import AdminAuthForm from "./conponents/forms/AdminAuthForm.tsx";
 import AdminPanel from "./conponents/adminSystems/dashboard/adminPanel.tsx";
+import AdminRoute from "./conponents/routes/AdminRoute.tsx";
 
 
 
@@ -54,9 +55,15 @@ function App() {
                 <Route path="/addnews" element={<AddNews/>}/>
                 <Route path="/news/:id" element={<Newses/>}/>
                 <Route path="/kaspiqr" element={<KaspiQR orderId="test123"/>}/>
-                <Route path="/adminlogin" element={<AdminAuthForm type="adminsignin"/>}/>
-                <Route path="/adminregister" element={<AdminAuthForm type="adminsignup"/>}/>
-                <Route path="/admin-panel" element={<AdminPanel/>}/>
+                <Route path="/adminlogin" element={<AdminAuthForm/>}/>
+                <Route
+                path="/admin-panel"
+                element={
+                <AdminRoute>
+                    <AdminPanel />
+                </AdminRoute>
+            }
+                />
             </Routes>
             <Footer/>
         </BrowserRouter>

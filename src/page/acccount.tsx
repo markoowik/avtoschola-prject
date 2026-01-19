@@ -1,9 +1,10 @@
 import "../styles/account.css"
 
 import {useEffect, useState} from "react";
-import api from "./../api.tsx"
+
 import {Link, useNavigate} from "react-router-dom";
 import PaymentCard from "../conponents/paymentcard/PaymentCard.tsx";
+import apiUser from "../api/apiUser.tsx";
 
 
 interface User {
@@ -11,6 +12,7 @@ interface User {
     email: string;
     username: string;
     surname: string;
+    role: string
 }
 
 const Account = () => {
@@ -23,40 +25,41 @@ const Account = () => {
     const API_URL = "https://avto-school-backend.onrender.com/api";
 
     useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                const res = await api.get(`${API_URL}/auth/me`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
+        const token = localStorage.getItem("token");
 
+        if (!token) {
+            setLoading(false);
+            return;
+        }
+
+        (async () => {
+            try {
+                const res = await apiUser.get(`${API_URL}/auth/me`);
+                console.log("ME RESPONSE:", res.data);
                 setUser(res.data);
             } catch (err: any) {
                 setUser(null);
                 localStorage.removeItem("token");
                 setError("Сессия истекла, войдите снова");
+                console.error(err);
             } finally {
                 setLoading(false);
             }
-        };
-
-        const token = localStorage.getItem("token");
-        if (token) {
-            fetchProfile();
-        } else {
-            setLoading(false);
-        }
+        })();
     }, []);
 
     const handleClink =() => {
         const token = localStorage.getItem("token");
-
-        if(token) {
+        if (token) {
             navigate("/admin-panel");
-        }else{
+        } else {
             navigate("/adminlogin");
         }
+    }
+    const handleLogOut = () => {
+        localStorage.removeItem("token");
+        setUser(null);
+        navigate("/login");
     }
 
 
@@ -80,10 +83,16 @@ const Account = () => {
                         <p>Фамилия: {user?.surname}</p>
                         <p>Номер телефона: +7 708 920 2157</p>
                         <div className="buttons">
-                            <button onClick={handleClink}>Админ-панель</button>
-                            <button><Link to="/addnews" className="linkBtn"> Добавить новости</Link></button>
+                            {user?.role === "admin" && (
+                                <button onClick={handleClink}>Админ-панель</button>
+                            )}
+                            {user?.role === "admin" && (
+                                <button>
+                                    <Link to="/addnews" className="linkBtn">Добавить новости</Link>
+                                </button>
+                            )}
                             <button>Настройка</button>
-                            <button>Выйти</button>
+                            <button onClick={handleLogOut}>Выйти</button>
                         </div>
                     </div>
                     <div className="status-card">
