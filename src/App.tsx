@@ -13,6 +13,7 @@ import Courses from "./page/Courses.tsx";
 import Acccount from "./page/acccount.tsx";
 import AddNews from "./conponents/forms/AddNews.tsx";
 import Newses from "./page/newses.tsx";
+import AdminOrders from "./page/AdminOrders.tsx";
 
 
 import AuthForm from "./conponents/forms/AuthForm.tsx";
@@ -64,6 +65,7 @@ function App() {
                 </AdminRoute>
             }
                 />
+                <Route path="/orders" element={<AdminOrders/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

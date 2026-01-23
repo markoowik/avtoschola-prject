@@ -3,16 +3,23 @@ import "../styles/account.css"
 import {useEffect, useState} from "react";
 
 import {Link, useNavigate} from "react-router-dom";
-import PaymentCard from "../conponents/paymentcard/PaymentCard.tsx";
+// import PaymentCard from "../conponents/paymentcard/PaymentCard.tsx";
 import apiUser from "../api/apiUser.tsx";
 
 
+interface Course {
+    _id: string;
+    title: string;
+    description: string;
+    price: number;
+}
+
 interface User {
     _id: string;
-    email: string;
     username: string;
     surname: string;
-    role: string
+    role: string;
+    courses: Course[];
 }
 
 const Account = () => {
@@ -57,7 +64,7 @@ const Account = () => {
         }
     }
     const handleLogOut = () => {
-        localStorage.removeItem("token");
+        localStorage.removeItem("to ken");
         setUser(null);
         navigate("/login");
     }
@@ -70,6 +77,16 @@ const Account = () => {
                 {error}
             </main>
         );
+    if (!user) {
+        return (
+            <main className="profile-page">
+                <p>Вы не авторизованы</p>
+                <button onClick={() => navigate("/login")}>
+                    Войти
+                </button>
+            </main>
+        );
+    }
     return (
         <div className="account">
 
@@ -91,12 +108,21 @@ const Account = () => {
                                     <Link to="/addnews" className="linkBtn">Добавить новости</Link>
                                 </button>
                             )}
+                            <button><Link to="/orders" className="linkbtn">Заказы</Link></button>
                             <button>Настройка</button>
                             <button onClick={handleLogOut}>Выйти</button>
                         </div>
                     </div>
                     <div className="status-card">
-                        <PaymentCard total={100} paid={100}/>
+                        {user.courses.length === 0 && (
+                            <p>У вас пока нет купленных курсов</p>
+                        )}
+                        {user.courses.map((course) => (
+                            <div key={course._id}>
+                                <h3>{course.title}</h3>
+                                <span>Доступ открыт</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

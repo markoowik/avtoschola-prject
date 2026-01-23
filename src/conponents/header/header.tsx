@@ -1,5 +1,9 @@
 // import avtoIMG from "../../assets/IMG/avtoIMG.png"
 // import shit from "../../assets/shield-ok-icon_34371.ico"
+
+import { useEffect, useRef} from "react";
+
+
 import park1 from "../../assets/cars/avtopark1.webp"
 import cobalt from "../../assets/cars/cobalt.webp"
 import gazzel from "../../assets/cars/gazzel.webp"
@@ -45,6 +49,24 @@ const reviews: Review[] = [
 ];
 
 const Header = () => {
+
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+
+        const onWheel = (e: WheelEvent) => {
+            if (e.deltaY === 0) return;
+
+            e.preventDefault();              // 🔑
+            el.scrollLeft += e.deltaY;        // 🔑
+        };
+
+        el.addEventListener("wheel", onWheel, { passive: false });
+
+        return () => el.removeEventListener("wheel", onWheel);
+    }, []);
     return(
         <>
             <header className="header">
@@ -200,7 +222,7 @@ const Header = () => {
             </div>
             <section className="reviews">
                 <h1 className="title">Отзывы наших учебников</h1>
-                <div className="review-cards">
+                <div className="review-cards" ref={scrollRef}>
                     {reviews.map((review, index) => (
                         <div key={index} className="review-card">
                             <h3>{review.name}, {review.age} лет</h3>

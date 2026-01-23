@@ -346,26 +346,38 @@
 }
 .review-cards
 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;        /* 🔑 важно */
     gap: 20px;
-    padding-top: 30px;
-    max-width: 1300px;
-    margin: 0 auto;
-    font-family: "Bookman Old Style", serif;
-    text-align: center;
+
+    overflow-x: auto;         /* 🔑 скролл */
+    overflow-y: hidden;
+
+    padding: 20px;
+
+    scrollbar-width: none;
+
+
 }
 .review-card{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    min-width: 320px;     /* 🔑 фиксированная ширина карточки */
+    max-width: 320px;
+    flex-shrink: 0;
+
     background: #fff;
     border-radius: 16px;
-    padding: 20px 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    scroll-snap-align: start;
+}
+.review-cards::-webkit-scrollbar {
+    display: none;
 }
 
-
+.review-cards {
+    scrollbar-width: none;
+}
 @media (max-width: 768px){
     .header{
         flex-direction: column;

@@ -38,6 +38,7 @@ export default function AdminAuthForm() {
             navigate("/admin-panel");
         } catch (err: any) {
             alert(err.message);
+            navigate("/adminlogin")
         } finally {
             setLoading(false);
         }

@@ -5,8 +5,8 @@ const apiAdmin = axios.create({
 });
 
 apiAdmin.interceptors.request.use((config) => {
-    const token = localStorage.getItem("adminToken");
-    if (token) {
+    const token = localStorage.getItem("adminToken"); // обязательно adminToken!
+    if (token && config.headers) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
