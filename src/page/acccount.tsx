@@ -4,15 +4,13 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiUser from "../api/apiUser.tsx";
 
-import { openTelegramBot } from "../utils/openTelegram.tsx";
-
 /* ---------- ТИПЫ ---------- */
 
-interface Course {
-  _id: string;
-  title: string;
-  slug: string; // 👈 НУЖНО для Telegram (easy / economy / standard)
-}
+// interface Course {
+//   _id: string;
+//   title: string;
+//   slug: string; // 👈 НУЖНО для Telegram (easy / economy / standard)
+// }
 
 // заказ (оплаченный курс)
 interface Order {

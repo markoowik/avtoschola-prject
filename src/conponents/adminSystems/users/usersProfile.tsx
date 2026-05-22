@@ -9,11 +9,11 @@ interface User {
   createdAt: string;
 }
 
-const roleMap: Record<string, string> = {
-  admin: "Администратор",
-  moderator: "Модератор",
-  student: "Студент",
-};
+// const roleMap: Record<string, string> = {
+//   admin: "Администратор",
+//   moderator: "Модератор",
+//   student: "Студент",
+// };
 
 const userProfile = () => {
   const { id } = useParams();
