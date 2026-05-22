@@ -1,46 +1,73 @@
-.admin-panel{
-    display: flex;
-    padding: 30px 10px;
-    justify-content: center;
-    align-items: center;
+.admin-panel {
+  display: flex;
+  padding: 30px 10px;
+  justify-content: center;
+  align-items: center;
 }
-.admin-panel_wrapper{
-    display: flex;
+.admin-panel_wrapper {
+  display: flex;
 
-    -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
-    -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
-    box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
-    width: 800px;
-    height: 300px;
-    margin-top: 40px;
+  -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  width: 800px;
+  /* height: 300px; */
+  margin-top: 40px;
 
-    border-radius: 16px;
+  border-radius: 16px;
 }
 .admin-panel_content {
-    display: flex;
-    flex-direction: column;
-    background: #7f89ff;
-    width: 100%;
-    max-width: 350px;
-    border-radius: 10px 0 0 10px;
-    padding: 10px 10px;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  background: #7f89ff;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px 0 0 10px;
+  padding: 10px 10px;
+  gap: 15px;
 }
 
 .admin-panel_content p {
-    color: #ffffff;
-    font-family: "Bookman Old Style", serif;
+  color: #ffffff;
+  font-family: "Bookman Old Style", serif;
 }
-.pravila{
-    text-align: center;
-    font-family: "Bookman Old Style", serif;
-    color: #333;
-    margin-top: 10px;
+.pravila {
+  text-align: center;
+  font-family: "Bookman Old Style", serif;
+  color: #333;
+  margin-top: 10px;
 }
-.pravila p{
-    width: 450px;
-    margin-top: 10px;
+.pravila p {
+  width: 450px;
+  margin-top: 10px;
 }
-.respect{
-    margin-top: 60px;
+.respect {
+  margin-top: 60px;
+}
+.role {
+  /* background: linear-gradient(135deg, #ff3b3b, #cc0000);
+
+  box-shadow: 0 4px 10px red; */
+  padding: 7px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+.roleAdmin {
+  background: linear-gradient(135deg, #ff3b3b, #cc0000);
+
+  box-shadow: 0 4px 10px red;
+  padding: 7px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .admin-panel_wrapper {
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+  }
+  .pravila p {
+    width: 350px;
+  }
 }

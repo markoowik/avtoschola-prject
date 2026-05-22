@@ -1,0 +1,112 @@
+.users {
+  margin-top: 30px;
+  padding: 60px;
+}
+
+.users__wrapper {
+  width: 400px;
+
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+
+  -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+
+  background-color: var(--card);
+}
+.users_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 60px;
+}
+
+.users__info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--card-text);
+}
+.username,
+.surname {
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+.admin__systems {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+.admin__systems button {
+  border: none;
+  color: white;
+  background-color: #007bff;
+  /* background-color: #fff200;
+  box-shadow: 0 8px 20px rgba(255, 242, 0, 0.4); */
+  padding: 10px;
+  border-radius: 8px;
+
+  font-family: "Bookman Old Style", serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+.role.admin {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+}
+
+/* STUDENT — синий */
+.role.student {
+  background: rgba(52, 152, 219, 0.15);
+  color: #3498db;
+}
+.users_search {
+  border: none;
+  border-radius: 8px;
+
+  margin-left: 380px;
+  margin-top: 30px;
+
+  padding: 10px;
+  width: 400px;
+
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+  -webkit-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  -moz-box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+  box-shadow: -1px 1px 50px 7px rgba(34, 60, 80, 0.29);
+}
+.btnProfile {
+  color: #ffffff;
+}
+
+/* Phone */
+
+@media (max-width: 768px) {
+  .adminList_title {
+    font-size: 15px;
+  }
+  .users_search {
+    width: 250px;
+    margin-left: -5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .users__wrapper {
+    margin-left: -6px;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+  }
+  .admin__systems {
+    flex-direction: column;
+  }
+}

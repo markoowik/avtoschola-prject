@@ -1,91 +1,120 @@
-import "./../../../styles/adminpanel.css"
-import {useEffect, useState} from "react";
+import "./../../../styles/adminpanel.css";
+import { useEffect, useState } from "react";
 import apiAdmin from "../../../api/apiAdmin.tsx";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Admin {
-    _id: string;
-    name: string;
-    role: string;
-
+  _id: string;
+  name: string;
+  role: string;
 }
 const roleMap: Record<string, string> = {
-    admin: "Администратор",
-    moderator: "Модератор",
+  admin: "Администратор",
+  moderator: "Модератор",
 };
 
 const AdminPanel = () => {
+  const [admin, setAdmin] = useState<Admin | null>(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
-    const [admin, setAdmin] = useState<Admin | null>(null);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
+  const API_URL = "https://avto-school-backend.onrender.com/api";
 
+  useEffect(() => {
+    const token = localStorage.getItem("adminToken");
 
-    const API_URL = "https://avto-school-backend.onrender.com/api";
+    if (!token) {
+      setLoading(false);
+      return;
+    }
 
-    useEffect(() => {
-        const token = localStorage.getItem("adminToken");
+    const adminInfo = localStorage.getItem("adminInfo");
+    if (adminInfo) setAdmin(JSON.parse(adminInfo));
 
-        if (!token) {
-            setLoading(false);
-            return;
-        }
+    (async () => {
+      try {
+        const res = await apiAdmin.get(`${API_URL}/admin/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-        const adminInfo = localStorage.getItem("adminInfo");
-        if (adminInfo) setAdmin(JSON.parse(adminInfo));
+        setAdmin(res.data);
+        localStorage.setItem("adminInfo", JSON.stringify(res.data));
+      } catch (err: any) {
+        setAdmin(null);
+        localStorage.removeItem("adminToken");
+        localStorage.removeItem("adminInfo");
+        setError("Сессия истекла, войдите снова");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
-        (async () => {
-            try {
-                const res = await apiAdmin.get(`${API_URL}/admin/me`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
+  const handleAdminLogOut = () => {
+    localStorage.removeItem("adminToken");
+    setAdmin(null);
+    navigate("/adminlogin");
+  };
 
-                setAdmin(res.data);
-                localStorage.setItem("adminInfo", JSON.stringify(res.data));
-            } catch (err: any) {
-                setAdmin(null);
-                localStorage.removeItem("adminToken");
-                localStorage.removeItem("adminInfo");
-                setError("Сессия истекла, войдите снова");
-                console.error(err)
-            } finally {
-                setLoading(false);
-            }
-        })();
-    }, []);
+  const handleUserList = () => {
+    navigate("/user-list");
+  };
 
-    if (loading)
-        return (
-            <main className="profile-page">
-                <div className="toast toast-loading"><span>⏳</span> Загрузка профиля...</div>
-                {error}
-            </main>
-        );
-
+  if (loading)
     return (
-        <div className="admin-panel">
-            <div className="container">
-                <h1 className="title">Админ-панель</h1>
-                <div className="admin-panel_wrapper">
-                    <div className="admin-panel_content">
-                        <p>Имя:{admin?.name}</p>
-                        <p>Роль:{roleMap[admin?.role ?? ""]}</p>
-                        <div className="buttons">
-                            <button>Список пользователи</button>
-                            <button>Список администрации</button>
-                        </div>
-                    </div>
-                    <div className="pravila">
-                        <h1>Правила</h1>
-                        <p>Администрация имеет право: - по своему усмотрению и необходимости создавать, изменять, отменять правила - ограничивать доступ к любой информации на сайте - создавать, изменять, удалять информацию - удалять учетные записи.</p>
-                        <p className="respect">С уважениям GUW</p>
-                    </div>
-                </div>
-            </div>
+      <main className="profile-page">
+        <div className="toast toast-loading">
+          <span>⏳</span> Загрузка профиля...
         </div>
-    )
-}
+        {error}
+      </main>
+    );
+
+  return (
+    <div className="admin-panel">
+      <div className="container">
+        <h1 className="title">Админ-панель</h1>
+        <div className="admin-panel_wrapper">
+          <div className="admin-panel_content">
+            <p>Имя: {admin?.name}</p>
+            <p>
+              Роль:
+              <span className="roleAdmin">{roleMap[admin?.role ?? ""]}</span>
+            </p>
+            <div className="buttons">
+              <button className="linkBtn" onClick={handleUserList}>
+                Список пользователи
+              </button>
+              <button className="linkBtn">Список администрации</button>
+              <button className="linkBtn">
+                <Link to="/addnews" className="linkBtn">
+                  Добавить новости
+                </Link>
+              </button>
+              <button onClick={handleAdminLogOut} className="logout">
+                Выйти
+              </button>
+            </div>
+          </div>
+          <div className="pravila">
+            <h1>Правила</h1>
+            <p>
+              Администрация имеет право: - по своему усмотрению и необходимости
+              создавать, изменять, отменять правила - ограничивать доступ к
+              любой информации на сайте - создавать, изменять, удалять
+              информацию - удалять учетные записи.
+            </p>
+            <p className="respect">С уважениям GUW</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default AdminPanel;
