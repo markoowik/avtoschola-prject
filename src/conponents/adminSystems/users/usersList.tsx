@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./../adminsystem.css";
 import apiUser from "../../../api/apiUser";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import apiAdmin from "../../../api/apiAdmin";
 import axios from "axios";
 
@@ -13,15 +13,15 @@ interface User {
   createdAt: string;
 }
 
-interface Order {
-  _id: string;
-  status: "pending" | "paid";
-  courseId: {
-    _id: string;
-    title: string;
-    slug: string; // easy / economy / standard
-  };
-}
+// interface Order {
+//   _id: string;
+//   status: "pending" | "paid";
+//   courseId: {
+//     _id: string;
+//     title: string;
+//     slug: string; // easy / economy / standard
+//   };
+// }
 
 const roleMap: Record<string, string> = {
   admin: "Администратор",
@@ -35,7 +35,7 @@ const usersList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const API_URL = "https://avto-school-backend.onrender.com/api";
   const token = localStorage.getItem("token");
@@ -54,7 +54,7 @@ const usersList = () => {
 
         console.log("USERS:", res.data);
       } catch (err) {
-        console.error(err);
+        console.error(error);
         setError("Ошибка загрузки пользователей");
       } finally {
         setLoading(false);
@@ -83,6 +83,10 @@ const usersList = () => {
       }
     }
   };
+
+  if (loading) {
+    return <div>Загурзка</div>;
+  }
 
   return (
     <main className="users">
