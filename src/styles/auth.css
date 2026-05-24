@@ -131,6 +131,11 @@
     max-width: 280px;
   }
   .form_content1 {
-    padding: 10px 50px;
+    padding: 20px 120px;
+  }
+  .information,
+  .information1 {
+    width: 250px;
+    margin-left: -80px;
   }
 }
